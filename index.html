@@ -9,24 +9,25 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 20px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
       min-height: 100vh;
     }
     
     .container {
       max-width: 500px;
       margin: 0 auto;
-      background-color: white;
+      background: rgba(45, 45, 45, 0.95);
       padding: 2rem;
       border-radius: 16px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 32px rgba(255, 107, 53, 0.3);
       text-align: center;
+      border: 1px solid rgba(255, 107, 53, 0.3);
     }
     
     .logo {
       font-size: 2rem;
       font-weight: bold;
-      color: #667eea;
+      color: #FF6B35;
       margin-bottom: 1rem;
     }
     
@@ -47,26 +48,46 @@
       display: block;
       font-weight: 600;
       margin-bottom: 0.5rem;
-      color: #333;
+      color: #ffffff;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
     }
     
     .form-group input {
       width: 100%;
       padding: 12px;
-      border: 2px solid #e0e0e0;
+      border: 2px solid rgba(255, 107, 53, 0.3);
+      background: rgba(26, 26, 26, 0.8);
+      color: #ffffff;
       border-radius: 8px;
       font-size: 1rem;
-      transition: border-color 0.3s;
+      transition: all 0.3s;
       box-sizing: border-box;
+    }
+    
+    .form-group input::placeholder {
+      color: rgba(255, 255, 255, 0.4);
     }
     
     .form-group input:focus {
       outline: none;
-      border-color: #667eea;
+      border-color: #FF6B35;
+      background: rgba(26, 26, 26, 0.95);
+      box-shadow: 0 0 15px rgba(255, 107, 53, 0.3);
+    }
+    
+    h2 {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    
+    p {
+      color: #b0b0b0;
     }
     
     .btn {
-      background: linear-gradient(45deg, #667eea, #764ba2);
+      background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
       color: white;
       border: none;
       padding: 12px 24px;
@@ -74,16 +95,23 @@
       font-size: 1rem;
       font-weight: 600;
       cursor: pointer;
-      transition: transform 0.2s;
+      transition: all 0.3s;
       margin: 10px;
+      box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
     }
     
     .btn:hover {
       transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
     }
     
     .btn-secondary {
-      background: #6c757d;
+      background: linear-gradient(135deg, #4a4a4a 0%, #6a6a6a 100%);
+      box-shadow: 0 4px 15px rgba(74, 74, 74, 0.4);
+    }
+    
+    .btn-secondary:hover {
+      box-shadow: 0 6px 20px rgba(74, 74, 74, 0.6);
     }
     
     #qrcode {
@@ -92,17 +120,22 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      background: rgba(26, 26, 26, 0.5);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid rgba(255, 107, 53, 0.2);
     }
     
     #timer {
       margin: 1rem 0;
       font-weight: bold;
       font-size: 1.1rem;
+      color: #FF6B35;
     }
     
     .loader {
-      border: 4px solid #f3f3f3;
-      border-top: 4px solid #667eea;
+      border: 4px solid rgba(255, 255, 255, 0.1);
+      border-top: 4px solid #FF6B35;
       border-radius: 50%;
       width: 50px;
       height: 50px;
@@ -124,32 +157,38 @@
     }
     
     .status.success {
-      background: #d4edda;
-      color: #155724;
-      border: 1px solid #c3e6cb;
+      background: rgba(74, 222, 128, 0.2);
+      color: #4ade80;
+      border: 1px solid rgba(74, 222, 128, 0.4);
     }
     
     .status.error {
-      background: #f8d7da;
-      color: #721c24;
-      border: 1px solid #f5c6cb;
+      background: rgba(239, 68, 68, 0.2);
+      color: #ef4444;
+      border: 1px solid rgba(239, 68, 68, 0.4);
     }
     
     .share-url {
-      background: #f8f9fa;
-      border: 1px solid #dee2e6;
+      background: rgba(26, 26, 26, 0.8);
+      border: 1px solid rgba(255, 107, 53, 0.3);
       border-radius: 8px;
       padding: 1rem;
       margin: 1rem 0;
       word-break: break-all;
       font-family: 'Courier New', monospace;
       font-size: 0.9rem;
+      color: #b0b0b0;
     }
     
     .copy-btn {
-      background: #28a745;
+      background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
       padding: 8px 16px;
       font-size: 0.9rem;
+      box-shadow: 0 4px 15px rgba(74, 222, 128, 0.4);
+    }
+    
+    .copy-btn:hover {
+      box-shadow: 0 6px 20px rgba(74, 222, 128, 0.6);
     }
   </style>
 </head>
@@ -181,7 +220,7 @@
       <button class="btn btn-secondary" onclick="testConnection()">🧪 Testar Conexão</button>
       
       <div id="shareUrl" style="display: none;">
-        <h3>Link para o Cliente:</h3>
+        <h3 style="color: #ffffff;">Link para o Cliente:</h3>
         <div class="share-url" id="generatedUrl"></div>
         <button class="btn copy-btn" onclick="copyToClipboard()">📋 Copiar Link</button>
       </div>
@@ -190,7 +229,7 @@
     <!-- Scanner de QR Code -->
     <div class="qr-scanner" id="qrScanner">
       <h2>Scanner de QR Code</h2>
-      <p>Instância: <strong id="displayInstanceName"></strong></p>
+      <p>Instância: <strong style="color: #FF6B35;" id="displayInstanceName"></strong></p>
       
       <div id="loader" class="loader"></div>
       <div id="qrcode"></div>
@@ -207,14 +246,12 @@
     let timeLeft = 30;
     let config = {};
 
-    // Verifica se há configuração na URL ao carregar
     window.onload = function() {
       const urlParams = new URLSearchParams(window.location.search);
       const configData = urlParams.get('config');
       
       if (configData) {
         try {
-          // Decodifica a configuração da URL
           config = JSON.parse(atob(configData));
           showQRScanner();
           generateQRCode();
@@ -226,8 +263,6 @@
 
     function normalizeApiUrl(url) {
       if (!url) return url;
-      
-      // Remove barras no final
       return url.replace(/\/+$/, '');
     }
 
@@ -241,7 +276,6 @@
         return;
       }
       
-      // Cria configuração codificada
       const configObj = {
         apiBaseUrl: apiBaseUrl,
         apiKey: apiKey,
@@ -308,7 +342,6 @@
           } else if (response.status === 404) {
             showError('❌ Erro na conexão. Nome da Instância não encontrado');
           } else {
-            // Tenta ler a resposta para verificar se é instância não encontrada
             try {
               const errorData = await response.json();
               const errorMessage = errorData.message;
@@ -345,7 +378,6 @@
       document.getElementById('qrScanner').style.display = 'none';
       document.getElementById('configForm').style.display = 'block';
       
-      // Limpa intervalos
       clearInterval(timerInterval);
       clearInterval(checagemInterval);
     }
@@ -353,14 +385,12 @@
     async function generateQRCode() {
       await fetchAndDisplayQRCode(true);
       
-      // Reset timers
       clearInterval(timerInterval);
       clearInterval(checagemInterval);
-      timeLeft = 30; // Volta para 30 segundos como no original
+      timeLeft = 30;
       updateTimer();
       timerInterval = setInterval(updateTimer, 1000);
       
-      // Inicia checagem de conexão
       iniciarChecagemConexao();
     }
 
@@ -386,11 +416,9 @@
         
         const data = await response.json();
         
-        // Verifica se a instância já está conectada
         if (data.instance && data.instance.state === 'open') {
           qrcodeElement.innerHTML = '<div class="status success">✅ WhatsApp já está conectado!<br/>Não é necessário escanear QR Code.</div>';
           
-          // Para os timers já que não precisa mais atualizar
           clearInterval(timerInterval);
           clearInterval(checagemInterval);
           
@@ -401,10 +429,9 @@
         }
         
         if (data.base64) {
-          // Remove o prefixo data:image se presente
           const base64Clean = data.base64.includes(',') ? data.base64.split(',')[1] : data.base64;
           const imgSrc = `data:image/png;base64,${base64Clean}`;
-          qrcodeElement.innerHTML = `<img src="${imgSrc}" alt="QR Code" style="max-width: 100%; height: auto;">`;
+          qrcodeElement.innerHTML = `<img src="${imgSrc}" alt="QR Code" style="max-width: 100%; height: auto; border-radius: 8px;">`;
         } else {
           throw new Error('QR Code não encontrado na resposta');
         }
@@ -412,7 +439,7 @@
       } catch (error) {
         console.error('Erro ao gerar QR code:', error);
         showError('Erro ao gerar QR code. Tentando novamente...');
-        qrcodeElement.innerHTML = '<p>❌ Erro ao carregar QR Code</p>';
+        qrcodeElement.innerHTML = '<p style="color: #ef4444;">❌ Erro ao carregar QR Code</p>';
       } finally {
         loader.style.display = 'none';
       }
@@ -425,13 +452,13 @@
     function updateTimer() {
       const timerElement = document.getElementById('timer');
       timerElement.textContent = `🔄 Novo QR Code em: ${timeLeft}s`;
-      timerElement.style.color = timeLeft <= 5 ? 'red' : '';
+      timerElement.style.color = timeLeft <= 5 ? '#ef4444' : '#FF6B35';
       
       if (timeLeft === 0) {
         clearInterval(timerInterval);
         
         updateQRCode();
-        timeLeft = 30; // Volta para 30 segundos como no original
+        timeLeft = 30;
         timerInterval = setInterval(updateTimer, 1000);
       } else {
         timeLeft--;
@@ -455,7 +482,6 @@
           const state = data.instance?.state;
           
           if (state === 'open') {
-            // Remove o QR Code e mostra mensagem de sucesso
             const qrcodeElement = document.getElementById('qrcode');
             qrcodeElement.innerHTML = '<div class="status success">✅ WhatsApp já está conectado!<br/>Não é necessário escanear QR Code.</div>';
             
@@ -471,7 +497,7 @@
         } catch (error) {
           console.error('Erro na checagem de conexão:', error);
         }
-      }, 3000); // Checa a cada 3s
+      }, 3000);
     }
 
     function showError(message) {
@@ -479,15 +505,12 @@
       statusDiv.className = 'status error';
       statusDiv.innerHTML = message.replace(/\n/g, '<br>');
       
-      // Remove mensagens anteriores
       const existing = document.querySelector('.status');
       if (existing) existing.remove();
       
-      // Adiciona nova mensagem
       const container = document.querySelector('.container');
       container.appendChild(statusDiv);
       
-      // Remove após 5 segundos
       setTimeout(() => statusDiv.remove(), 5000);
     }
 
@@ -496,15 +519,12 @@
       statusDiv.className = 'status success';
       statusDiv.innerHTML = message.replace(/\n/g, '<br>');
       
-      // Remove mensagens anteriores
       const existing = document.querySelector('.status');
       if (existing) existing.remove();
       
-      // Adiciona nova mensagem
       const container = document.querySelector('.container');
       container.appendChild(statusDiv);
       
-      // Remove após 3 segundos
       setTimeout(() => statusDiv.remove(), 3000);
     }
   </script>
